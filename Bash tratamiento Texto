@@ -1,0 +1,383 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled0.ipynb",
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/alramirezve/ciencia_de_datos/blob/master/Bash%20tratamiento%20Texto\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "-uGyvaGTwu5j",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "outputId": "3b935b70-d024-4aab-cb7a-f10a814e9df1"
+      },
+      "source": [
+        "#Ejercicios bash texto\n",
+        "!echo hola     mundo    cruel # elimina los espacios en blanco entre las palabras"
+      ],
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "hola mundo cruel\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "KSqPwZ8lxCoU",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "outputId": "f61e106e-7a1a-4931-a552-c76cf4a27dbc"
+      },
+      "source": [
+        "!echo 'hola     mundo    cruel'"
+      ],
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "hola     mundo    cruel\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "XIJSBh_-xMFY",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "outputId": "6cbd4076-791d-44a8-ff18-5872f93f2a0c"
+      },
+      "source": [
+        "!echo \"hola     mundo    cruel\""
+      ],
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "hola     mundo    cruel\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Z9dC-ktUxQy6",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        },
+        "outputId": "0fcdf8b6-2da5-4d4d-c78d-718d36d2f776"
+      },
+      "source": [
+        "!echo linea 1\n",
+        "!echo linea 2\n",
+        "!echo linea 3"
+      ],
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "linea 1\n",
+            "linea 2\n",
+            "linea 3\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ZLMVocjRxVD7",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        },
+        "outputId": "e910ec9a-04a2-4dfe-f8d9-6617d62088aa"
+      },
+      "source": [
+        "%%bash\n",
+        "echo 'linea 1\n",
+        "linea 2\n",
+        "linea 3'"
+      ],
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "linea 1\n",
+            "linea 2\n",
+            "linea 3\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "8-2mOgAtxaTJ",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "outputId": "e96c17ef-ca12-466d-aeb7-f403a41ec526"
+      },
+      "source": [
+        "!echo linea 1 \\\n",
+        "linea 2 \\\n",
+        "linea 3"
+      ],
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "linea 1 linea 2 linea 3\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "p99CPjI8xrkS",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        },
+        "outputId": "3039fff5-83e9-4ec0-d88a-90db3dcb1de4"
+      },
+      "source": [
+        "'''también admite el uso de caracteres de escape (precedidos por '\\'); \n",
+        "en el siguiente ejemplo se usa el carácter de retorno de carro '\\n' en la cadena \n",
+        "de texto para indicar el inicio de una nueva línea. Se debe usar la opción “-e” \n",
+        "del comando echo para convertir los caracteres \\n en retornos de carro.'''\n",
+        "!echo -e \"linea 1\\nlinea 2\\nlinea 3\""
+      ],
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "linea 1\n",
+            "linea 2\n",
+            "linea 3\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "TAs-TuTvxz8l",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "outputId": "bf145ddf-af68-4fd8-b517-1c17daf1f0e2"
+      },
+      "source": [
+        "'''Bash también tiene el comando printf, el cual usa una sintaxis similar a la del lenguaje C:\n",
+        "%s indica cadena de caracteres.\n",
+        "%f indica un número en punto flotante.\n",
+        "%g indica un número entero.\n",
+        "En los siguientes ejemplos se ilustra como se puede indicar el tamaño del campo. Note la alineación de la impresión.'''\n",
+        "!printf '%s ---- %f' 'hola mundo'  1.23456789\n",
+        "!printf '%15s --- %8.2f'  hola   1.23456789\n",
+        "!printf '%15s --- %8.2f'  'hola mundo'   123.456789"
+      ],
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "hola mundo ---- 1.234568           hola ---     1.23     hola mundo ---   123.46"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "S4Nsh0iKyXJ3",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 102
+        },
+        "outputId": "f91f064a-feb9-4248-8a6d-5318afc36b68"
+      },
+      "source": [
+        "'''En vez de echo se puede usar seq para imprimir secuencias.'''\n",
+        "!seq 5"
+      ],
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "1\n",
+            "2\n",
+            "3\n",
+            "4\n",
+            "5\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "KaMyegPgylhs",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 102
+        },
+        "outputId": "a7519228-a2d9-4e77-c6c4-83849ffa07e7"
+      },
+      "source": [
+        "'''La opción -f permite especificar formato para la secuencia, por ejemplo:'''\n",
+        "!seq -f\"linea %g\" 5"
+      ],
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "linea 1\n",
+            "linea 2\n",
+            "linea 3\n",
+            "linea 4\n",
+            "linea 5\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "jsymi_coyuUq",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "outputId": "8f03f461-4eac-40e7-90b2-2e95e6848369"
+      },
+      "source": [
+        "'''La opción -s permite indicar el separador.'''\n",
+        "!seq -s, 2 2 10 # el separador es la coma"
+      ],
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "2,4,6,8,10\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "FjEcALbAy4g2",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 119
+        },
+        "outputId": "f1ebb74a-83cc-4b38-99af-ebe695d1518d"
+      },
+      "source": [
+        "'''La opción -w permite especificar formato.'''\n",
+        "!seq 0 .05 .1\n",
+        "!seq -w 0 .05 .1"
+      ],
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0.00\n",
+            "0.05\n",
+            "0.10\n",
+            "0.00\n",
+            "0.05\n",
+            "0.10\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "NoMW8QZK5rZH",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    }
+  ]
+}
